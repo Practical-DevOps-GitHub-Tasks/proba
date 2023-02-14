@@ -35,7 +35,7 @@ jobs:
       - name: Run tests
         run: |
           echo ########
-          env
           echo ${{ github.repository }}
+          echo ########
           ruby test/script_test.rb
 
