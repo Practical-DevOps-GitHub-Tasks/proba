@@ -33,5 +33,9 @@ jobs:
       - name: Install dependencies
         run: bundle install
       - name: Run tests
-        run: ruby test/script_test.rb
+        run: |
+          echo ########
+          env
+          echo ${{ github.repository }}
+          ruby test/script_test.rb
 
