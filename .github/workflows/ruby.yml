@@ -12,6 +12,7 @@ name: Ruby
 env:
     URL: ${{secrets.URL}}
     TOKEN: ${{secrets.TOKEN}}
+    U: ${{ github.repository }}
 
 on:
   push:
