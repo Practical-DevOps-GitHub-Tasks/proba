@@ -42,7 +42,7 @@ jobs:
             https://api.github.com/repos/${{ github.repository }}/branches
           curl \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.${{ secrets.APP_TOKEN }} }}"\
+            -H "Authorization: Bearer ${{ secrets.APP_TOKEN }}"\
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/${{ github.repository }}/branches/main/protection/required_pull_request_reviews
           echo ########
