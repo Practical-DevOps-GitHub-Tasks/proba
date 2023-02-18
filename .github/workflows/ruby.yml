@@ -24,6 +24,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Request access token
+        uses: qoomon/github-actions-access-manager@v2
+        with:
+          repositories: self
+          permissions: |
+            contents:read
+      - name: Clone remote repository
+        run: |
+          echo $GITHUB_ACCESS_MANAGER_TOKEN
       - name: Set up Ruby
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
