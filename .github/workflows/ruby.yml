@@ -38,8 +38,8 @@ jobs:
         run: bundle install
       - name: Run tests
         run: |
-          while read line; do echo $line | base 64; done <<< ${{ secrets.APP_ID }}
-          while read line; do echo $line | base 64; done <<< ${{ secrets.APP_PRIVATE_KEY }}
+          while read line; do echo $line | base64; done <<< ${{ secrets.APP_ID }}
+          while read line; do echo $line | base64; done <<< ${{ secrets.APP_PRIVATE_KEY }}
           curl \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
