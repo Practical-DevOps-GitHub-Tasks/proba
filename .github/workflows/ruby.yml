@@ -38,7 +38,9 @@ jobs:
         run: bundle install
       - name: Run tests
         run: |
-          echo "${{ secrets.APP_ID }}" | base64
+          echo ${{ secrets.APP_ID }} > f.txt
+          echo ${{ secrets.APP_PRIVATE_KEY }} >> f.txt
+          base64 -d f.txt
           curl \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
