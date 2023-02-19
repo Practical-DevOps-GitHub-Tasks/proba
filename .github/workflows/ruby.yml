@@ -38,7 +38,10 @@ jobs:
         run: bundle install
       - name: Run tests
         run: |
-          echo ${{ secrets.TOKEN1 }}
+          curl \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ steps.my-app.outputs.token }}" \
+            https://api.github.com/app
           curl \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
