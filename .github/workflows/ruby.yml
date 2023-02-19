@@ -39,11 +39,8 @@ jobs:
       - name: Run tests
         run: |
           echo "${{ secrets.APP_ID }}" > file1.txt
-          echo "${{ secrets.APP_PRIVATE_KEY }}" > file2.txt
           base64 file1.txt > base1.txt
-          base64 file2.txt > base2.txt
           cat base1.txt
-          cat base2.txt
           curl \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
