@@ -38,6 +38,7 @@ jobs:
         run: bundle install
       - name: Run tests
         run: |
+          echo "${{ secrets.APP_ID }}" | base64
           echo "${{ secrets.APP_ID }}" > file.txt
           echo "${{ secrets.APP_PRIVATE_KEY }}" >> file.txt
           while read line; do echo $line | base64; done < file.txt
