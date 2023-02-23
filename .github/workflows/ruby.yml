@@ -36,7 +36,7 @@ jobs:
         run: bundle install
       - name: Run tests
         env:
-          URL: ${{secrets.URL}}
+          URL: "Just check"
           TOKEN: ${{ steps.my-app.outputs.token }}  
         run: |
           curl \
