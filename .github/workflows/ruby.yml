@@ -36,8 +36,8 @@ jobs:
         run: bundle install
       - name: Run tests
         env:
-          URL: ${{ secrets.URL}}
-          TOKEN: ${{ secrets.TOKEN }}  
+          URL: ${{ github.repository}}
+          TOKEN: ${{ steps.my-app.outputs.token }}  
         run: |
           curl \
             -H "Accept: application/vnd.github+json" \
