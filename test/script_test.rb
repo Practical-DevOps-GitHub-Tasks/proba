@@ -6,12 +6,18 @@ class ScriptTest < Test::Unit::TestCase
   def setup
     url = ENV['URL'].nil? ? '' : ENV["URL"]
     token = ENV['TOKEN'].nil? ? '' : ENV["TOKEN"]
+    secrets_token = ENV['SECRETS_TOKEN']
     @obj = GithubApi.new(url, token)
   end
 
   def test_health_check
     assert_not_nil(@obj.instance_variable_get('@repo_uri'), 'Url alive')
     assert_not_nil(@obj.instance_variable_get('@token'), 'Token alive')
+  end
+  
+  def test_token_present
+    actual = secrets_token =~ /^ghp_\w{36}$/
+    assert_not_nil(actual, 'Personal acces token with name \'PAT\' not present in secrets')
   end
 
   def test_main_present
